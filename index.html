@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bão SaoKe 🐤 sau bão Yagi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+    <style>
+        body {
+            font-family: 'Comic San MS';
+            /* font-style: italic; */
+        }
+
+        ::selection {
+            background: #d3d3d3;
+            color: #555;
+        }
+
+        ::-moz-selection {
+            background: #d3d3d3;
+            color: #555;
+        }
+
+        ::-webkit-selection {
+            background: #d3d3d3;
+            color: #555;
+        }
+
+        .dataTables_scroll {
+            margin-top: 16px;
+            overflow: auto;
+        }
+
+        .dataTables_scrollHead {
+            position: sticky !important;
+            top: 0;
+            z-index: 1;
+        }
+
+        .dataTables_scrollHead,
+        .dataTables_scrollBody {
+            overflow: unset !important;
+        }
+
+        .dataTables_length {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            padding: 0.5em 1em;
+            margin: 0 0.2em;
+            transition: all 0.3s linear;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background: #e2e8f0;
+            border-color: #cbd5e0;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+            background: #5283ac;
+            border-color: #5283ac;
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-100 p-8 max-lg:p-2">
+    <div class="mx-auto bg-white rounded-lg shadow-md p-6">
+        <h1 class="text-2xl font-bold mb-4 text-slate-800">🐤 Check Var Sao Kê 🐤 </h1>
+        <p class="text-sm text-slate-600 mb-4">
+            Dữ liệu được lấy từ bài viết của trang Facebook <a href="https://www.facebook.com/share/p/p4UvWvjvNenXiBK5/"
+                target="_blank" class="text-black-500 hover:text-blue-600"><strong>Thông Tin Chính Phủ</strong></a> -
+            thời gian từ <strong>01/09/2024 - 10/09/2024</strong>
+        </p>
+        <div id="searchContainer" class="mb-3">
+            <div class="flex">
+                <input type="text" id="searchInput"
+                    placeholder="Tìm kiếm theo mã giao dịch, số tiền giao dịch hoặc chi tiết giao dịch"
+                    class="flex-grow px-4 py-2 border border-slate-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 max-lg:px-2 max-lg:py-1.5 max-lg:text-sm">
+                <button id="searchButton"
+                    class="bg-sky-800 text-white px-6 py-2 max-lg:px-2 max-lg:py-1.5 max-lg:text-sm rounded-r-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Tìm
+                    kiếm</button>
+            </div>
+        </div>
+        <div id="loading" class="hidden text-center text-sky-600 my-4">
+            <svg class="animate-spin h-5 w-5 mr-3 inline-block" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                </path>
+            </svg>
+            Đang tìm kiếm...
+        </div>
+        <div class="overflow-x-auto mb-4">
+            <table id="dataTable" class="w-full table-center">
+                <thead>
+                    <tr class="bg-sky-800 uppercase text-sm leading-normal border-b-2 border-slate-100">
+                        <th class="py-3 px-6 text-left text-white min-w-24">Ngày GD</th>
+                        <th class="py-3 px-6 text-left text-white min-w-24">Tài khoản</th>
+                        <th class="py-3 px-6 text-left text-white min-w-24">Số tiền</th>
+                        <th class="py-3 px-6 text-left text-white min-w-24">Nội dung</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <p class="text-sm text-slate-600">
+            <b>STK ủng hộ MTTQ Việt Nam Vietcombank 0011001932418</b>
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
